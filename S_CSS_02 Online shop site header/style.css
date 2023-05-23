@@ -107,14 +107,14 @@
 }
 .multi{
     display: inline-block;
-    color:  rgb(204, 158, 31);
+    color:  #f3d512;
     background-color: rgb(78, 66, 66);
     height:37px
 }
 
 .shop{
     display: inline-block;
-    background-color: rgb(204, 158, 31);
+    background-color: #f3d512;
     color: rgb(78, 66, 66);
     width: 93px;
     position: relative;
@@ -154,6 +154,16 @@
 .search{
     display: inline-block;
 }
+.input-field{
+    height: 30px;
+}
+.search i {
+    height: 30px;
+    width: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .customer-service{
     display: inline-block;
@@ -188,7 +198,7 @@
     justify-content: space-between;
     align-items: center;
     margin-left:5vh;
-    background-color: rgb(204, 158, 31);
+    background-color: #f3d512;
     width: 22.5%;
     height: 100%;
 }
@@ -281,19 +291,43 @@
   height: 500px;
   margin: 20px 40px;
 }
+.grid-system button{
+    cursor: pointer;
+}
+
 
 .main-grid{
-    background-image: url(./img/main-photo.jpg);
-   
-   
+    content:"";
+    background-image: url(./img/women-fashion.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: brightness(80%);
 }
+
+.info{
+    margin: 20vh 25% 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(253, 253, 253);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+.info h1 {
+    font-size: 300%;
+}
+
 .sub-grid{
     display: grid;
     grid-gap: 20px
 }
 
 .sub-grid1{
-    background-image: url(./img/sub1.avif);
+    background-image: url(./img/fashion-sub1.avif);
     background-size: cover;
    
 }
@@ -306,27 +340,19 @@
     text-align: center;
 }
 
-.info{
-    margin: 20vh 25% 7vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(253, 253, 253);
-    text-align: center;
-}
+
 
 .main-grid{
    
 }
 
 .sub-grid2{
-    background-image: url(./img/sub2.jpeg);
+    background-image: url(./img/fashion\ sub\ 2.webp);
     background-size: cover;
 }
 
 .sub-grid button{
-    background-color: yellow;
+    background-color: #f3d512;
     height: 30px;
 }
 
