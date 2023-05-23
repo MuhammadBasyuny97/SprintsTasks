@@ -1,0 +1,253 @@
+
+*{
+    margin: 0;
+    
+}
+
+
+.Navbar{
+    background-color: rgba(209, 209, 203, 40%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4vh;
+}
+
+.nav-buttons{
+    display: inline-block;
+}
+.nav-buttons li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 1vw;
+    
+}
+
+.nav-buttons li a {
+    text-decoration: none;
+    color: rgb(83, 80, 80);
+}
+
+.right-buttons{
+    display: inline-flex;
+    margin-right: 5vh;
+    height: 80%;
+    text-align: center;
+    
+}
+.right-buttons div{
+    margin-right: 1vh;
+    background-color: white;
+    
+}
+
+.right-buttons div button{
+    background-color: white;
+    border: 0;
+    height: 100%;
+    cursor: pointer;
+}
+.account-list, .currencies-list, .language-list{
+    list-style-type: none;
+    display: none;
+    border: 1px solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+    
+}
+
+.currencies_list{
+    list-style-type: none;
+    display: none;
+    border: 1px solid;
+    margin: 0px;
+    padding: 0px;
+}
+
+.myaccount:hover .account-list{
+    display: block;
+
+}
+
+.currency:hover .currencies-list{
+    display: block;
+
+}
+.language:hover .language-list{
+    display: block;
+} 
+
+.logo-section{
+    height: 8vh;
+    background-color: rgb(255, 255, 255);
+   
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+    
+   
+}
+.logo{
+   display: inline-block;
+    margin-left: 5vw;
+    font-size: xx-large;
+}
+.multi{
+    display: inline-block;
+    color:  rgb(204, 158, 31);
+    background-color: rgb(78, 66, 66);
+    height:37px
+}
+
+.shop{
+    display: inline-block;
+    background-color: rgb(204, 158, 31);
+    color: rgb(78, 66, 66);
+    width: 93px;
+    position: relative;
+    left: -8.8px;
+  
+}
+
+
+.input-field{
+    display: inline-block;
+    width: 25vw;
+
+}
+
+
+.search-icon{
+    border: 1px solid rgb(78, 66, 66);
+    padding: 1.5px;
+    position: relative;
+    left: -5.5px;
+    top:1.3px
+}
+
+.search-box{
+    display: inline-block;
+}
+
+.main-section{
+    display: inline-block;
+    margin-left: 2vw;
+    color: rgb(39, 39, 199);
+}
+
+.search{
+    display: inline-block;
+}
+
+.customer-service{
+    display: inline-block;
+    margin-right: 5%;
+}
+
+.customer-service > p {
+    color: rgb(83 80 80 / 73%);
+    opacity: 0.7;
+}
+
+.number{
+    color: black !important;
+    font-weight: bold;
+}
+
+.menu{
+    background-color: rgb(70, 64, 64);
+    height: 6vh;
+    display: flex;
+    
+}
+.bar{
+    margin-left: 2.5vw;
+
+    cursor: pointer;
+
+}
+.categories-bar{
+  
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:5vh;
+    background-color: rgb(204, 158, 31);
+    width: 22.5%;
+    height: 100%;
+}
+.categories{
+    display: inline-block;
+}
+
+.down{
+     
+    cursor: pointer;
+}
+
+.down-sec{
+    display: inline-block;
+    margin-right: 4%; 
+}
+
+.list{
+    display: inline-flex;
+    align-items: center;
+    margin-left:2vw;
+ 
+}
+.list .links{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.list .links .link {
+    display: inline-block;
+    margin: 0px 5px;   
+}
+
+.list ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.pages-dropdown{
+    list-style-type: none;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid ;
+}
+/* 
+.pages:hover .pages-dropdown{
+  display: block;
+} */
+
+.cart{
+    display: inline-flex;
+    align-items: center;
+    margin-left: 42%;
+    justify-self: flex-end;
+    
+   
+  
+}
+.wish-list{
+    display: inline-block;
+    margin-right: 1vw;
+}
+
+.shopping-list{
+    display: inline-block;
+}
+
+.counter{
+    display: inline-flex;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+}
