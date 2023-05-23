@@ -28,12 +28,19 @@
     color: rgb(83, 80, 80);
 }
 
-.right-buttons{
-    display: inline-flex;
-    margin-right: 5vh;
-    height: 80%;
-    text-align: center;
-    
+.right-section {
+    margin-right: 4vw;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.button-div{
+    display: inline-block;
+    margin: 5px;
+    position: relative;
+  
+   
 }
 .right-buttons div{
     margin-right: 1vh;
@@ -53,7 +60,7 @@
     border: 1px solid;
     margin: 0px;
     padding: 0px;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.418);
     
 }
 
@@ -67,15 +74,24 @@
 
 .myaccount:hover .account-list{
     display: block;
+    background-color: white;
+    position: absolute;
+    top:100%;
 
 }
 
 .currency:hover .currencies-list{
     display: block;
+    background-color: white;
+    position: absolute;
+    top:100%;
 
 }
 .language:hover .language-list{
     display: block;
+    background-color: white;
+    position: absolute;
+    top:100%;
 } 
 
 .logo-section{
