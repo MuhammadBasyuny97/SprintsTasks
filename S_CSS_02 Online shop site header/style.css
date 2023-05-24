@@ -290,7 +290,7 @@ body{
 
 .pages:hover .pages-dropdown{
     display: block;
-    background-color: #f1f1ed;
+    background-color: #f3f3df;
     width: 100%;
     position: absolute;
     top: 100%;
