@@ -269,6 +269,9 @@ body{
     display: inline-block;
     margin: 0px 5px;   
 }
+.link:hover a {
+    color:#f3d512
+}
 
 .list ul li a {
     text-decoration: none;
@@ -341,7 +344,12 @@ body{
 .grid-system button{
     cursor: pointer;
 }
-
+.grid-system button:hover{
+    background-color: #f3d512;
+    transition: linear 1s;
+    width: 120px;
+    height: 40px;
+}
 
 .main-grid{
     content:"";
