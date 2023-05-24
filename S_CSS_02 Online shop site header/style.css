@@ -3,6 +3,10 @@
     margin: 0;
     
 }
+body{
+    background-color: rgb(143 138 138 / 19%);
+    font-family: 'Roboto', sans-serif;
+}
 
 
 .Navbar{
@@ -38,6 +42,7 @@
 .button-div{
     display: inline-block;
     margin: 5px;
+    height: 25px;
     position: relative;
     cursor: pointer;
   
@@ -285,11 +290,9 @@
    /* grid-template-columns: repeat(auto-fill,minmax(200px,1 fr));*/
   grid-template-columns: 3fr 1fr; 
   grid-template-rows: 2fr;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 500px;
   margin: 20px 40px;
+  
 }
 .grid-system button{
     cursor: pointer;
@@ -342,9 +345,7 @@
 
 
 
-.main-grid{
-   
-}
+
 
 .sub-grid2{
     background-image: url(./img/fashion\ sub\ 2.webp);
@@ -372,7 +373,7 @@
 }
 .features div {
     width: 23%;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(247, 245, 245);
     height: 80px;
     display: flex;
     align-items: center;
