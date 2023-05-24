@@ -1,6 +1,7 @@
 
 *{
     margin: 0;
+    box-sizing: border-box;
     
 }
 body{
@@ -74,25 +75,31 @@ body{
 .myaccount:hover .account-list{
     display: block;
     background-color: white;
+    width: 100%;
     position: absolute;
     top:100%;
     cursor: pointer;
+    z-index: 1;
 
 }
 
 .currency:hover .currencies-list{
     display: block;
     background-color: white;
+    width: 100%;
     position: absolute;
     top:100%;
     cursor: pointer;
+    z-index: 1;
 }
 .language:hover .language-list{
     display: block;
     background-color: white;
+    width: 100%;
     position: absolute;
     top:100%;
     cursor: pointer;
+    z-index: 1;
 } 
 
 .logo-section{
@@ -206,13 +213,39 @@ body{
     background-color: #f3d512;
     width: 22.5%;
     height: 100%;
+    position: relative;
 }
 .categories{
     display: inline-block;
+    font-weight: bold;
+}
+.bar-sec ul {
+    list-style-type: none;
+    display: none;
+    border:1px #f3d512 solid;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.bar-sec ul li {
+    padding: 15px 5px;
+    cursor: pointer;
 }
 
+.categories-bar:hover .categories-box {
+    display: block;
+    background-color: #f3d512;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    padding-left: 50px;
+    padding-bottom: 0px;
+    z-index: 2;
+} 
+
+
+
 .down{
-     
     cursor: pointer;
 }
 
@@ -242,17 +275,28 @@ body{
     color: white;
 }
 
+.pages{
+    position: relative;
+}
+
 .pages-dropdown{
     list-style-type: none;
     display: none;
     margin: 0px;
     padding: 0px;
-    border: 1px solid ;
+    border: 1px solid black;
+    position: absolute;
 }
-/* 
+
 .pages:hover .pages-dropdown{
-  display: block;
-} */
+    display: block;
+    background-color: #f1f1ed;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    cursor: pointer;
+} 
 
 .cart{
     display: inline-flex;
