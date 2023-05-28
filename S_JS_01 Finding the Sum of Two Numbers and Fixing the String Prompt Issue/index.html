@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="Enter Num 1" value="10"/>
+    <br/>
+    <input id="num2" type="number" placeholder="Enter Num 2" value="20"/>
+    <br/>
+    <input onclick="(add())" type="submit" value="Add" />
+
+    <script>
+       
+        const add = () => {
+        let num1 = parseInt(document.getElementById("num1").value);
+        let num2 = parseInt(document.getElementById("num2").value);
+        
+         alert(num1 + num2)
+       }
+
+    </script>
+</body>
+</html>
