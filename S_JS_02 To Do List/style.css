@@ -27,4 +27,8 @@ button{
 table{
  width: 72%;
  margin:  5px auto;
+ text-align: center;
+}
+table button{
+    background-color: red;
 }

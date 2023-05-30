@@ -22,13 +22,7 @@
             <th> Delete </th>
         </thead>
         <tbody id="body">
-            <tr id="row">
-                <td id="index"></td>
-                <td id="task"></td>
-                <td id="priority"></td>
-                <td id="delete"></td>
-            </tr>
-            
+          
         </tbody>
     </table>
 
@@ -66,11 +60,12 @@
      }
         const add = () => {
         let task = document.getElementById('task').value;
-        let priority = parseInt(document.getElementById('priority').value);
+        task = task.trim();
+        let priority = Number(document.getElementById('priority').value);
             console.log(task,priority);
-            if(task === " " || task === undefined)
+            if(task === "" || task === undefined)
               alert('Task name is not Valid, Please Enter Valid Name');
-            else if(priority < 0 || priority > 5)
+            else if(isNaN(priority)|| priority < 0 || priority > 5)
               alert("Priority is not Valid, Please Enter priority from 0 to 5");
 
             else 
