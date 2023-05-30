@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1> To Do List Application</h1>
+    <div>
+        <input type="text" id="task" placeholder="Enter the task" />
+        <input type="text" id="priority" placeholder="Enter the priority"/>
+        <button id="add" onclick="add()">Add</button>
+    </div>
+    <table border="1">
+        <thead>
+            <th> # </th>
+            <th> Task Name </th>
+            <th> Priority </th>
+            <th> Delete </th>
+        </thead>
+        <tbody id="body">
+            <tr id="row">
+                <td id="index"></td>
+                <td id="task"></td>
+                <td id="priority"></td>
+                <td id="delete"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <script>
+
+      
+        let tasks = [];
+
+         const  addTasksToTable = () => {
+         console.log(tasks);
+         let row = document.getElementById('row');
+         let body = document.getElementById('body');
+         body.innerHTML = " ";
+         for(let i = 0 ; i < tasks.length; ++i){
+            let newRow = body.insertRow(-1);
+            let newCell = newRow.insertCell(0);
+            newCell.innerHTML= (i+1);
+            newCell = newRow.insertCell(1);
+            newCell.innerHTML = (tasks[i].task);
+            newCell = newRow.insertCell(2);
+            newCell.innerHTML = (tasks[i].priority);
+            newCell = newRow.insertCell(3);
+            let newBtn = document.createElement('button');
+                newBtn.innerText = 'Remove';
+                newBtn.value = i;
+                newCell.appendChild(newBtn);    
+                 
+        newBtn.addEventListener('click', function() {
+            tasks.splice(newBtn.value,1);
+            addTasksToTable();
+        })  
+         }
+        
+
+     }
+        const add = () => {
+        let task = document.getElementById('task').value;
+        let priority = parseInt(document.getElementById('priority').value);
+            console.log(task,priority);
+            if(task === " " || task === undefined)
+              alert('Task name is not Valid, Please Enter Valid Name');
+            else if(priority < 0 || priority > 5)
+              alert("Priority is not Valid, Please Enter priority from 0 to 5");
+
+            else 
+                tasks.push({task,priority});
+
+          addTasksToTable();
+        }
+
+    </script>
+
+</body>
+</html>

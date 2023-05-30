@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+body{
+ background-color: rgb(119, 119, 253);
+}
+body > h1{
+    text-align: center;
+    font-size: 200%;
+}
+body > div{
+ height: 30px;
+ width: 75%;
+ display: flex;
+justify-content: space-evenly;
+ 
+ margin:0px auto;
+}
+div input {
+    width: 43%;
+}
+button{
+    margin: 0;
+    background-color: rgb(100, 226, 100);
+}
+
+table{
+ width: 72%;
+ margin:  5px auto;
+}
