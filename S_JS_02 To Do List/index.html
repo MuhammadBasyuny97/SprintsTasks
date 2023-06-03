@@ -1,80 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <!-- 
+        gkgkgk
+        gkgkgk
+        gkgkgk
+        gkgkgk
+     -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>To Do List</title>
-</head>
-<body>
-    <h1> To Do List Application</h1>
+  </head>
+  <body>
+    <h1>To Do List Application</h1>
     <div>
-        <input type="text" id="task" placeholder="Enter the task" />
-        <input type="text" id="priority" placeholder="Enter the priority"/>
-        <button id="add" onclick="add()">Add</button>
+      <input type="text" id="task" placeholder="Enter the task" />
+      <input type="text" id="priority" placeholder="Enter the priority" />
+      <button id="add" onclick="add()">Add</button>
+      <button id="findMostImportantTask" onclick="findMostImportantTask()">
+        findMostImportantTask
+      </button>
     </div>
     <table border="1">
-        <thead>
-            <th> # </th>
-            <th> Task Name </th>
-            <th> Priority </th>
-            <th> Delete </th>
-        </thead>
-        <tbody id="body">
-          
-        </tbody>
+      <thead>
+        <th>#</th>
+        <th>Task Name</th>
+        <th>Priority</th>
+        <th>Delete</th>
+      </thead>
+      <tbody id="body"></tbody>
     </table>
 
     <script>
+      let tasks = [];
 
-      
-        let tasks = [];
+      const findMostImportantTask = () => {
+        let mostPriorityTask = [];
+        for (let i = 1; i <= 5; ++i) {
+          for (let j = 0; j < tasks.length; ++j) {
+            if (tasks[j].priority === i) {
+              mostPriorityTask.push(tasks[j]);
+              break;
+            }
+          }
+          if (mostPriorityTask.length > 0) break;
+        }
+        console.log(mostPriorityTask);
+        addTasksToTable(mostPriorityTask);
+      };
 
-         const  addTasksToTable = () => {
-         console.log(tasks);
-         let row = document.getElementById('row');
-         let body = document.getElementById('body');
-         body.innerHTML = " ";
-         for(let i = 0 ; i < tasks.length; ++i){
-            let newRow = body.insertRow(-1);
-            let newCell = newRow.insertCell(0);
-            newCell.innerHTML= (i+1);
-            newCell = newRow.insertCell(1);
-            newCell.innerHTML = (tasks[i].task);
-            newCell = newRow.insertCell(2);
-            newCell.innerHTML = (tasks[i].priority);
-            newCell = newRow.insertCell(3);
-            let newBtn = document.createElement('button');
-                newBtn.innerText = 'Remove';
-                newBtn.value = i;
-                newCell.appendChild(newBtn);    
-                 
-        newBtn.addEventListener('click', function() {
-            tasks.splice(newBtn.value,1);
-            addTasksToTable();
-        })  
-         }
-        
+      const addTasksToTable = (Tasks) => {
+        //console.log(tasks);
+        let row = document.getElementById("row");
+        let body = document.getElementById("body");
+        body.innerHTML = " ";
+        for (let i = 0; i < Tasks.length; ++i) {
+          let newRow = body.insertRow(-1);
+          let newCell = newRow.insertCell(0);
+          newCell.innerHTML = i + 1;
+          newCell = newRow.insertCell(1);
+          newCell.innerHTML = Tasks[i].task;
+          newCell = newRow.insertCell(2);
+          newCell.innerHTML = Tasks[i].priority;
+          newCell = newRow.insertCell(3);
+          let newBtn = document.createElement("button");
+          newBtn.innerText = "Remove";
+          newBtn.value = i;
+          newCell.appendChild(newBtn);
 
-     }
-        const add = () => {
-        let task = document.getElementById('task').value;
+          let newBtn2 = document.createElement("button");
+          newBtn2.innerText = "Edit";
+          newBtn2.value = i;
+          newCell.appendChild(newBtn2);
+
+          newBtn.addEventListener("click", function () {
+            Tasks.splice(newBtn.value, 1);
+            addTasksToTable(Tasks);
+          });
+        }
+      };
+
+      const validate = (task, priority) => {
+        if (task === "" || task === undefined)
+          return alert("Task name is not Valid, Please Enter Valid Name");
+        else if (isNaN(priority) || priority < 1 || priority > 5)
+          return alert(
+            "Priority is not Valid, Please Enter priority from 0 to 5"
+          );
+        else return true;
+      };
+      const add = () => {
+        //console.log(task,priority);
+        let task = document.getElementById("task").value;
         task = task.trim();
-        let priority = Number(document.getElementById('priority').value);
-            console.log(task,priority);
-            if(task === "" || task === undefined)
-              alert('Task name is not Valid, Please Enter Valid Name');
-            else if(isNaN(priority)|| priority < 0 || priority > 5)
-              alert("Priority is not Valid, Please Enter priority from 0 to 5");
+        let priority = Number(document.getElementById("priority").value);
 
-            else 
-                tasks.push({task,priority});
-
-          addTasksToTable();
+        if (validate(task, priority)) {
+          tasks.push({ task, priority });
+          document.getElementById("task").value = " ";
+          document.getElementById("priority").value = " ";
         }
 
+        addTasksToTable(tasks);
+      };
     </script>
-
-</body>
+  </body>
 </html>
