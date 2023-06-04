@@ -11,14 +11,14 @@ body > h1 {
 
 body > div {
   height: 30px;
-  width: 80%;
+  width: 75%;
   display: flex;
   justify-content: space-evenly;
 
   margin: 0px auto;
 }
 div input {
-  width: 37%;
+  width: 40%;
 }
 button {
   margin: 0;

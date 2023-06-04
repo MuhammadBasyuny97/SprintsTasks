@@ -67,6 +67,16 @@ function save(i) {
     editBtn.style.display = "inline-block";
   }
 
+  let Save = document.getElementsByClassName("save");
+  let j = 0;
+  for (let i = 0; i < Save.length; ++i) {
+    if (Save[i].style.display !== "none") {
+      ++j;
+      break;
+    }
+  }
+  j === 0 ? (document.getElementById("footer").style.display = "none") : " ";
+
   console.log(tasks[i]);
 }
 
