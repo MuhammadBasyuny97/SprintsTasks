@@ -44,4 +44,5 @@ const extractNames = (students) => {
   }
   console.log(uniqueStudents);
 };
+
 extractNames(students);
