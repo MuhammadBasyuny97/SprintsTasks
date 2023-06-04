@@ -15,6 +15,13 @@ const findMostImportantTask = () => {
   addTasksToTable(mostPriorityTask);
 };
 
+const validate = (task, priority) => {
+  if (task === "" || task === undefined)
+    return alert("Task name is not Valid, Please Enter Valid Name");
+  else if (isNaN(priority) || priority < 1 || priority > 5)
+    return alert("Priority is not Valid, Please Enter priority from 0 to 5");
+  else return true;
+};
 const edit = (i) => {
   let saveBtn = document.getElementById(`save${i}`);
   let cancelBtn = document.getElementById(`cancel${i}`);
@@ -39,7 +46,7 @@ const edit = (i) => {
   footer.style.display = "table-row";
 };
 
-const save = (i) => {
+function save(i) {
   console.log(tasks[i]);
   let taskCell = document.getElementById(`taskCell${i}`);
   let priorityCell = document.getElementById(`priorityCell${i}`);
@@ -68,10 +75,13 @@ const save = (i) => {
       break;
     }
   }
-  //j === 0 ? (document.getElementById("footer").style.display = "none") : " ";
-  addTasksToTable(tasks);
-  //console.log(tasks[i]);
-};
+  if (j === 0) {
+    document.getElementById("footer").style.display = "none";
+    addTasksToTable(tasks);
+  }
+
+  console.log(tasks[i]);
+}
 
 const cancel = (i) => {
   document.getElementById(`save${i}`).style.display = "none";
@@ -102,14 +112,13 @@ const saveAll = () => {
   for (let i = 0; i < Save.length; ++i) {
     save(i);
   }
-  addTasksToTable(tasks);
   document.getElementById("footer").style.display = "none";
+  addTasksToTable(tasks);
 };
 
 const addTasksToTable = (Tasks) => {
-  //Sorting
-
   //console.log(tasks);
+  sort(tasks);
   let row = document.getElementById("row");
   let body = document.getElementById("body");
   body.innerHTML = " ";
@@ -173,15 +182,7 @@ const addTasksToTable = (Tasks) => {
     });
   }
 };
-const validate = (task, priority) => {
-  if (task === "" || task === undefined)
-    return alert("Task name is not Valid, Please Enter Valid Name");
-  else if (isNaN(priority) || priority < 1 || priority > 5)
-    return alert("Priority is not Valid, Please Enter priority from 0 to 5");
-  else return true;
-};
-
-/* const sort = (tasks) => {
+const sort = (tasks) => {
   let temp = 0;
   for (let i = 0; i < tasks.length; ++i) {
     for (let j = 0; j < tasks.length - 1; ++j) {
@@ -192,8 +193,7 @@ const validate = (task, priority) => {
       }
     }
   }
-}; */
-
+};
 const add = () => {
   //console.log(task,priority);
   let task = document.getElementById("task").value;
@@ -205,6 +205,6 @@ const add = () => {
     document.getElementById("task").value = " ";
     document.getElementById("priority").value = " ";
   }
-  //sort(tasks);
+
   addTasksToTable(tasks);
 };
