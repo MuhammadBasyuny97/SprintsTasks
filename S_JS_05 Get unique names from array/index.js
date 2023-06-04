@@ -29,20 +29,21 @@ let students = [
   ["Mariam Ahmed", "Task 01", "Option 1"],
 ];
 
-let studentsMap = new Map();
 
+const extractNames = (students) => {
+ let studentsSet = new Set();
 for (let i = 0; i < students.length; ++i) {
-  let value = studentsMap.has(students[i][0]);
+  let value = typeOf(students[i][0]) ;
 
-  if (!value) {
-    studentsMap.set(students[i][0], 1);
-  } else {
-    studentsMap.set(students[i][0], studentsMap.get(students[i][0]) + 1);
-  }
+  if (value === 'string') {
+    studentsSet.add(students[i][0]);
+  } 
 }
 
 let uniqueStudents = [];
-for (let [key, value] of studentsMap) {
-  if (value > 1) uniqueStudents.push(key);
+for (let val of studentsSet) {
+  uniqueStudents.push(val);
 }
 console.log(uniqueStudents);
+}
+extractNames(students);
