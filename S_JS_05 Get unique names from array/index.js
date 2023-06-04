@@ -34,8 +34,7 @@ const extractNames = (students) => {
  let studentsSet = new Set();
 for (let i = 0; i < students.length; ++i) {
   let value = (students[i][0]) ;
-
-  if (typeof value === 'string') {
+  if (value) {
     studentsSet.add(students[i][0]);
   } 
 }
