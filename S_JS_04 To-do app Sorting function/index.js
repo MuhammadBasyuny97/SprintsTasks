@@ -1,25 +1,25 @@
 let tasks = [];
 
-const findMostImportantTask = () => {
-  let mostPriorityTask = [];
+const sortTasks = () => {
+  /* let mostPriorityTask = [];
   for (let i = 1; i <= 5; ++i) {
     for (let j = 0; j < tasks.length; ++j) {
       if (tasks[j].priority === i) {
         mostPriorityTask.push(tasks[j]);
-        break;
+        break;S
       }
     }
     if (mostPriorityTask.length > 0) break;
-  }
-  console.log(mostPriorityTask);
-  addTasksToTable(mostPriorityTask);
+  } */
+  console.log(tasks);
+  sort(tasks);
+  addTasksToTable(tasks);
 };
-
 const validate = (task, priority) => {
   if (task === "" || task === undefined)
     return alert("Task name is not Valid, Please Enter Valid Name");
   else if (isNaN(priority) || priority < 1 || priority > 5)
-    return alert("Priority is not Valid, Please Enter priority from 0 to 5");
+    return alert("Priority is not Valid, Please Enter priority from 1 to 5");
   else return true;
 };
 const edit = (i) => {
@@ -118,7 +118,7 @@ const saveAll = () => {
 
 const addTasksToTable = (Tasks) => {
   //console.log(tasks);
-  sort(tasks);
+
   let row = document.getElementById("row");
   let body = document.getElementById("body");
   body.innerHTML = " ";

@@ -1,18 +1,19 @@
 let tasks = [];
 
-const findMostImportantTask = () => {
-  let mostPriorityTask = [];
+const sortTasks = () => {
+  /* let mostPriorityTask = [];
   for (let i = 1; i <= 5; ++i) {
     for (let j = 0; j < tasks.length; ++j) {
       if (tasks[j].priority === i) {
         mostPriorityTask.push(tasks[j]);
-        break;
+        break;S
       }
     }
     if (mostPriorityTask.length > 0) break;
-  }
-  console.log(mostPriorityTask);
-  addTasksToTable(mostPriorityTask);
+  } */
+  console.log(tasks);
+  sort(tasks);
+  addTasksToTable(tasks);
 };
 
 const edit = (i) => {
@@ -177,11 +178,11 @@ const validate = (task, priority) => {
   if (task === "" || task === undefined)
     return alert("Task name is not Valid, Please Enter Valid Name");
   else if (isNaN(priority) || priority < 1 || priority > 5)
-    return alert("Priority is not Valid, Please Enter priority from 0 to 5");
+    return alert("Priority is not Valid, Please Enter priority from 1 to 5");
   else return true;
 };
 
-/* const sort = (tasks) => {
+const sort = (tasks) => {
   let temp = 0;
   for (let i = 0; i < tasks.length; ++i) {
     for (let j = 0; j < tasks.length - 1; ++j) {
@@ -192,7 +193,7 @@ const validate = (task, priority) => {
       }
     }
   }
-}; */
+};
 
 const add = () => {
   //console.log(task,priority);
