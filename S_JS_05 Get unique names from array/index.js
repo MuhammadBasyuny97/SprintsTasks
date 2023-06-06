@@ -28,7 +28,7 @@ let students = [
   ["Nathalie Nader", "Task 01", "Option 1"],
   ["Mariam Ahmed", "Task 01", "Option 1"],
 ];
-
+ 
 const extractNames = (students) => {
   let studentsSet = new Set();
   for (let i = 0; i < students.length; ++i) {
@@ -37,13 +37,16 @@ const extractNames = (students) => {
       studentsSet.add(students[i][0]);
     }
   }
-
-  let uniqueStudents = [];
+  
+    let uniqueStudents = [];
+  
   for (let val of studentsSet) {
     uniqueStudents.push(val);
   }
   let unique = uniqueStudents.filter(student => )
   console.log(uniqueStudents);
+  
+  return uniqueStudents;
 };
 
 extractNames(students);
