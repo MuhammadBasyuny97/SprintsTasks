@@ -34,20 +34,18 @@ const extractNames = (students) => {
   for (let i = 0; i < students.length; ++i) {
     let value = students[i][0];
     if (value) {
-      studentsSet.add(students[i]);
+      studentsSet.add(students[i][0]);
     }
   }
   
     let uniqueStudents = [];
-    let  uniqueNames = [];
   
   for (let val of studentsSet) {
     uniqueStudents.push(val);
-    uniqueNames.push(val[0]);
   }
   console.log(uniqueStudents);
-  console.log(uniqueNames);
-  return [uniqueStudents,uniqueNames];
+  
+  return uniqueStudents;
 };
 
 extractNames(students);
