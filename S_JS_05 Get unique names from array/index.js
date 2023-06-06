@@ -42,6 +42,7 @@ const extractNames = (students) => {
   for (let val of studentsSet) {
     uniqueStudents.push(val);
   }
+  let unique = uniqueStudents.filter(student => )
   console.log(uniqueStudents);
 };
 

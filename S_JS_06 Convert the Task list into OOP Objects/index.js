@@ -1,5 +1,62 @@
 let tasks = [];
 
+class Task {
+  id;
+  name;
+  priority;
+  _assignedTo;
+  _status;
+
+  constructor(
+    name,
+    priority,
+    _assignedTo = "Mohamed",
+    status = "pending",
+    id = 0
+  ) {
+    this.id = id;
+    this.name = name;
+    this.priority = priority;
+    this._assignedTo = _assignedTo;
+    this._status = status;
+  }
+  getName() {
+    return this.name;
+  }
+
+  getPriority() {
+    return this.priority;
+  }
+  setName(name) {
+    this.name = name;
+  }
+  setStatus(status) {
+    this.status = status;
+  }
+  setPriority(priority) {
+    this._priority = priority;
+  }
+  get increasePriority() {
+    if (this._priority > 1) this._priority--;
+  }
+
+  decreasaePriority() {
+    this._priority++;
+  }
+  done() {
+    this._status = "done";
+  }
+  unDone() {
+    this._status = "undone";
+  }
+
+  displayTaskData() {
+    console.log(
+      `${this.name} - ${this._priority} - ${this._assignedTo} - ${this.status}`
+    );
+  }
+}
+
 const sortTasks = () => {
   sort(tasks);
   addTasksToTable(tasks);
@@ -45,7 +102,7 @@ function save(i) {
   let editBtn = document.getElementById(`edit${i}`);
 
   if (validate(taskCell.innerHTML, priorityCell.innerHTML)) {
-    tasks[i].task = taskCell.innerHTML;
+    tasks[i].name = taskCell.innerHTML;
     tasks[i].priority = priorityCell.innerHTML;
 
     taskCell.setAttribute("contentEditable", "false");
@@ -79,7 +136,7 @@ const cancel = (i) => {
 
   let taskCell = document.getElementById(`taskCell${i}`);
   let priorityCell = document.getElementById(`priorityCell${i}`);
-  taskCell.innerHTML = tasks[i].task;
+  taskCell.innerHTML = tasks[i].name;
   priorityCell.innerHTML = tasks[i].priority;
 
   taskCell.setAttribute("contentEditable", "false");
@@ -117,7 +174,7 @@ const addTasksToTable = (Tasks) => {
     newCellId.innerHTML = i + 1;
     Tasks[i].id = i;
     let newCellTask = newRow.insertCell(1);
-    newCellTask.innerHTML = Tasks[i].task;
+    newCellTask.innerHTML = Tasks[i].name;
     newCellTask.setAttribute("id", `taskCell${i}`);
     let newCellPriority = newRow.insertCell(2);
     newCellPriority.innerHTML = Tasks[i].priority;
@@ -185,12 +242,13 @@ const sort = (tasks) => {
 };
 const add = () => {
   //console.log(task,priority);
-  let task = document.getElementById("task").value;
-  task = task.trim();
+  let name = document.getElementById("task").value;
+  name = name.trim();
   let priority = Number(document.getElementById("priority").value);
+  let task = new Task(name, priority);
 
-  if (validate(task, priority)) {
-    tasks.push({ task, priority });
+  if (validate(task.name, task.getPriority())) {
+    tasks.push(task);
     document.getElementById("task").value = " ";
     document.getElementById("priority").value = " ";
   }
