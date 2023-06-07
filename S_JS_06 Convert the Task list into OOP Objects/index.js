@@ -6,6 +6,7 @@ class Task {
   priority;
   _assignedTo;
   _status;
+  removeChecked = false;
 
   constructor(
     name,
@@ -78,6 +79,8 @@ const edit = (i) => {
 
   let taskCell = document.getElementById(`taskCell${i}`);
   let priorityCell = document.getElementById(`priorityCell${i}`);
+  taskCell.style.backgroundColor = "white";
+  priorityCell.style.backgroundColor = "white";
 
   let footer = document.getElementById("footer");
 
@@ -131,6 +134,24 @@ function save(i) {
 
   console.log(tasks[i]);
 }
+
+const removeAll = () => {
+  let checked = document.getElementsByClassName("removeCheck");
+  let newTasks = [];
+  console.log(checked);
+  for (let i = 0; i < checked.length; ++i) {
+    let elementId = checked[i].getAttribute("id");
+    let j = elementId[elementId.length - 1];
+    if (tasks[j].removeChecked === false) {
+      newTasks.push(tasks[j]);
+      /* checkedElement = tasks[j];
+      let k = newTasks.indexOf(checkedElement);
+      newTasks.splice(k, 1); */
+    }
+  }
+  tasks = newTasks;
+  addTasksToTable(newTasks);
+};
 
 const cancel = (i) => {
   document.getElementById(`save${i}`).style.display = "none";
@@ -198,6 +219,13 @@ const addTasksToTable = (Tasks) => {
     newBtn1.value = i;
     newCellRemove.appendChild(newBtn1);
 
+    let removeCheck = document.createElement("input");
+    removeCheck.setAttribute("type", "checkbox");
+    removeCheck.setAttribute("class", "removeCheck");
+    removeCheck.setAttribute("id", `removeCheck${i}`);
+    //statusCheck.value = "undone";
+    newCellRemove.appendChild(removeCheck);
+
     newCell = newRow.insertCell(5);
     let newBtn2 = document.createElement("button");
     newBtn2.innerText = "Edit";
@@ -224,7 +252,7 @@ const addTasksToTable = (Tasks) => {
     newCell.appendChild(newBtn4);
 
     newBtn1.addEventListener("click", function () {
-      Tasks.splice(newBtn1.value, 1);
+      Tasks.splice(tasks[i].id, 1);
       addTasksToTable(Tasks);
     });
 
@@ -248,6 +276,14 @@ const addTasksToTable = (Tasks) => {
       } else {
         tasks[i].unDone(i);
       }
+    });
+
+    removeCheck.addEventListener("change", function (e) {
+      checkBox = e.target;
+      if (checkBox.checked) {
+        tasks[i].removeChecked = true;
+      }
+      console.log(tasks);
     });
   }
 };

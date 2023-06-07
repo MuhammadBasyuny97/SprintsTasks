@@ -11,14 +11,14 @@ body > h1 {
 
 body > div {
   height: 30px;
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-evenly;
 
   margin: 0px auto;
 }
 div input {
-  width: 44%;
+  width: 40%;
 }
 button {
   margin: 0;
@@ -48,4 +48,8 @@ table button {
   display: none;
   border: 5px solid rgb(163, 31, 31);
   margin: 4px;
+}
+
+#remove {
+  background-color: red;
 }
