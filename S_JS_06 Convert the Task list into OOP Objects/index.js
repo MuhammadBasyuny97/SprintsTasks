@@ -43,11 +43,14 @@ class Task {
   decreasaePriority() {
     this._priority++;
   }
-  done() {
+  done(i) {
     this._status = "done";
+    document.getElementById(`taskCell${i}`).style.textDecorationLine =
+      "line-through";
   }
-  unDone() {
+  unDone(i) {
     this._status = "undone";
+    document.getElementById(`taskCell${i}`).style.textDecorationLine = "none";
   }
 
   displayTaskData() {
@@ -179,13 +182,23 @@ const addTasksToTable = (Tasks) => {
     let newCellPriority = newRow.insertCell(2);
     newCellPriority.innerHTML = Tasks[i].priority;
     newCellPriority.setAttribute("id", `priorityCell${i}`);
-    let newCellRemove = newRow.insertCell(3);
+
+    let newCellStatus = newRow.insertCell(3);
+    let statusCheck = document.createElement("input");
+
+    statusCheck.setAttribute("type", "checkbox");
+    statusCheck.setAttribute("class", "check");
+    statusCheck.setAttribute("id", `check${i}`);
+    //statusCheck.value = "undone";
+    newCellStatus.appendChild(statusCheck);
+
+    let newCellRemove = newRow.insertCell(4);
     let newBtn1 = document.createElement("button");
     newBtn1.innerText = "Remove";
     newBtn1.value = i;
     newCellRemove.appendChild(newBtn1);
 
-    newCell = newRow.insertCell(4);
+    newCell = newRow.insertCell(5);
     let newBtn2 = document.createElement("button");
     newBtn2.innerText = "Edit";
     newBtn2.value = i;
@@ -225,6 +238,16 @@ const addTasksToTable = (Tasks) => {
 
     newBtn4.addEventListener("click", function () {
       cancel(tasks[i].id);
+    });
+
+    statusCheck.addEventListener("change", function (e) {
+      checkBox = e.target;
+
+      if (checkBox.checked) {
+        tasks[i].done(i);
+      } else {
+        tasks[i].unDone(i);
+      }
     });
   }
 };
