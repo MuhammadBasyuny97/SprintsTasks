@@ -1,5 +1,5 @@
 let students = [
-  ["Nathalie Nader Nabil", "Task 01", "Option 2"],
+  ["Nathalie Nader Nabil", "Task 01", "Option 1"],
   ["Youssef Mohamed Ahmed Mohamed Youssef", "Task 01", "Option 1"],
   ["Salma Nasreldin", "Task 01", "Option 1"],
   ["Engy Mostafa", "Task 01", "Option 1"],
@@ -25,10 +25,12 @@ let students = [
   ["Mohamed Fahmi", "Task 01", "Option 2"],
   ["Alaa Ahmed", "Task 01", "Option 2"],
   ["Abdelrahman Shemies", "Task 01", "Option 1"],
-  ["Nathalie Nader", "Task 01", "Option 1"],
+  ["Nathalie Nader Nabil", "Task 01", "Option 1"],
   ["Mariam Ahmed", "Task 01", "Option 1"],
 ];
- 
+
+//console.log(students);
+
 const extractNames = (students) => {
   let studentsSet = new Set();
   for (let i = 0; i < students.length; ++i) {
@@ -37,16 +39,18 @@ const extractNames = (students) => {
       studentsSet.add(students[i][0]);
     }
   }
-  
-    let uniqueStudents = [];
-  
-  for (let val of studentsSet) {
-    uniqueStudents.push(val);
+
+  let studentsMap = new Map();
+  for (let i = 0; i < students.length; ++i) {
+    if (studentsMap.has(students[i][0])) {
+      studentsMap.set(students[i][0], studentsMap.get(students[i][0]) + 1);
+    } else {
+      studentsMap.set(students[i][0], 1);
+    }
   }
-  let unique = uniqueStudents.filter(student => )
-  console.log(uniqueStudents);
-  
-  return uniqueStudents;
+
+  console.log(studentsSet);
+  console.log(studentsMap);
 };
 
 extractNames(students);
