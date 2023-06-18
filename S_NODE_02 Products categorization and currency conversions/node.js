@@ -1,10 +1,20 @@
+const convertRate = (data, rate) => {  
+     data.forEach(elem =>{
+    elem.price = elem.price * rate;
+   } 
+   )
+   return data;
+}
 
 async function getProductsData () {
-   const response = await fetch("https://api.escuelajs.co/api/v1/products");
-   const data = await response.json();
-   //console.log(data);
+   let response = await fetch("https://api.escuelajs.co/api/v1/products");
+    response = await response.json();
 
+  //convertPriceRate
+  let rate = 30;
+  let data = convertRate(response, rate);
 
+console.log(data);
    // List the Categories
    let categories = [];
    for(let elem of data){
@@ -40,8 +50,8 @@ async function getProductsData () {
     let products = [];
     for(let j = 0; j < data.length; ++j){
        let obj = data[j];
-       const {id,title,description,image} = obj;
-       let product = {id,title,description,image};
+       const {id,title,description,price} = obj;
+       let product = {id,title,description,price};
         if(obj.category.id === category.id){
             products.push(product);
            newData[i] = {category: category, products: products};
