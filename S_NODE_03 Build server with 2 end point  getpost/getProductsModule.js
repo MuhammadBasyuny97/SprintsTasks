@@ -54,7 +54,7 @@ const categorizedData = (data) => {
 }
 
 
- async function getRate() {
+ async function getRate(cur) {
     let myHeaders = new Headers();
     myHeaders.append("apikey", "Rp04chiYjw1up5g8tkrKuf3n8ZG87eHt");
 
@@ -65,34 +65,34 @@ const categorizedData = (data) => {
     };
    let rate = 0
     try{
-    let response = await fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=USD&amount=20", requestOptions)
+    let response = await fetch(`https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=${cur}&amount=20`, requestOptions)
     response = await response.json();
-    console.log(response);
-    rate = parseFloat(response.info.rate);
     
+    rate = (response.info.rate);
+    //console.log(rate);
     }
 
-    catch{
+    catch(error){
         error => console.log('error', error);
     }
     return rate;
 }
 
 
-export async function getProductsData () {
+export async function getProductsData (cur) {
    let response = await fetch("https://api.escuelajs.co/api/v1/products");
     response = await response.json();
+    
 
   //convertPriceRate
-  let rate = await getRate();
-  console.log(rate);
+  let rate = await getRate(cur);
   let data = convertRate(response, rate);
 
-  // console.log(data);
+  
    // List the Categories
    let newData = categorizedData(data);
    
-  console.log(newData);
+  //console.log(newData);
   return newData;
 
 }
