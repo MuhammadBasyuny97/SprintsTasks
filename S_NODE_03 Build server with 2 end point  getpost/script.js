@@ -1,15 +1,8 @@
-import { error } from 'console';
+
 import { getProductsData } from './getProductsModule.js';
 import http from 'http';
-import yup, { array } from 'yup'
 import { object, string, number} from 'yup';
 
-
-
-
-
-
-//console.log(data);
 
 
 
@@ -19,13 +12,14 @@ import { object, string, number} from 'yup';
     description: string().required(),
     categoryId: number().required().positive(),
     Images: object(),
-    //createdOn: date().default(() => new Date()),
+    
   });
 
 const server = http.createServer(async (req,res) => {
      let url = req.url;
      let cur;
      let data = [];
+
 // 1- Get Products  
    if(req.method === "GET"){ 
      res.setHeader('Content-Type', "application/json");
@@ -70,7 +64,7 @@ const server = http.createServer(async (req,res) => {
                         .then(response.json()); */
       if(valid){
          console.log(valid);
-         let data = {id:200,
+         let data = {id: new Date() + 1,
          title:"New Product",
          price:1000,
          description:"A description",
@@ -104,11 +98,7 @@ const server = http.createServer(async (req,res) => {
       
       
     })
-   /*    console.log("REQUEST ",body);
-     
-      res.write("hhhhhhhhhh");
-      res.end();  */
-     
+    
   }
 
 })
