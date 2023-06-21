@@ -1,4 +1,17 @@
 
+import { object, string, number} from 'yup';
+
+
+  let userSchema = object({
+    title: string().required(),
+    price: number().required().positive(),
+    description: string().required(),
+    categoryId: number().required().positive(),
+    Images: object(),
+    
+  });
+
+
 let products = [];
 
 export const getProducts =(req,res) => {
@@ -14,30 +27,46 @@ export const getProduct = (req,res) => {
 
 export const createProduct = (req,res) => {
     let body = req.body;
-    const {title,price,description,images,categoryId} = req.body;
-    let product = {
-        title,
-        price,
-        description,
-        images,
-        categoryId
-    }
-    products.push(product);
-    res.send(JSON.stringify(products));
+    let valid = userSchema.validateSync(body,{
+        strict:true
+      });
+      const {title,price,description,images,categoryId} = req.body;
+      if(valid){
+        let product = {
+            title,
+            price,
+            description,
+            images,
+            categoryId
+        }
+        products.push(product);
+        res.send(JSON.stringify(products));
+      }
+      else{
+        res.send("Invalid Data");
+      }
+
 
 }
 
 
 export const updateProdcut =  (req,res) => {
     let id = req.params[0];
-    let price = req.params[1];
-    let title = req.params[2];
+    let body = req.body;
+    let valid = userSchema.validateSync(body,{
+        strict:true
+      });
    
     let idx = products.findIndex(product => product.id === id);
     let product = products[idx];
-     product.price = price;
-     product.title = title;
-    res.send(JSON.stringify(product));
+    if(valid){
+        product = {...product,...body};
+        res.send(JSON.stringify(product));
+    }
+    else{
+        res.send("Invalid Data");
+    }
+   
 }
 
 
