@@ -13,9 +13,10 @@ import { object, string, number} from 'yup';
 
 
 let products = [];
-
-export const getProducts =(req,res) => {
+ export const getProducts =(req,res) => {
+    const url = req.url;
     res.send(JSON.stringify(products));
+    res.end();
 }
 
 export const getProduct = (req,res) => {
@@ -23,8 +24,8 @@ export const getProduct = (req,res) => {
     let product = products.find(product => product.id === id);
 
     res.send(JSON.stringify(product));
+    res.end();
 }
-
 export const createProduct = (req,res) => {
     let body = req.body;
     let valid = userSchema.validateSync(body,{
@@ -45,12 +46,12 @@ export const createProduct = (req,res) => {
       else{
         res.send("Invalid Data");
       }
-
+      res.end();
 
 }
 
 
-export const updateProdcut =  (req,res) => {
+export const updateProduct =  (req,res) => {
     let id = req.params[0];
     let body = req.body;
     let valid = userSchema.validateSync(body,{
@@ -66,14 +67,24 @@ export const updateProdcut =  (req,res) => {
     else{
         res.send("Invalid Data");
     }
+    res.end();
    
 }
 
-
-export const deletProduct = (req,res) => {
+export const deleteProduct = (req,res) => {
     let id = req.params;
     let idx = products.findIndex(product => product.id === id);
     let product = products[idx];
     products.splice(idx,1);
     res.send(JSON.stringify(product));
+
+    res.end();
 }
+
+/* module.exports ={
+  getProducts,
+  getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct
+} */
