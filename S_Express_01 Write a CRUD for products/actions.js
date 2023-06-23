@@ -15,16 +15,23 @@ import { object, string, number} from 'yup';
 let products = [];
  export const getProducts =(req,res) => {
     const url = req.url;
+    res.status(200);
     res.send(JSON.stringify(products));
     res.end();
 }
 
 export const getProduct = (req,res) => {
-    let id = req.params;
-    let product = products.find(product => product.id === id);
-
-    res.send(JSON.stringify(product));
-    res.end();
+     let id = req.params;
+     let product = products.find(product => product.id === id);
+     if(product){
+      res.status(200);
+      res.send(JSON.stringify(product));
+     }else{
+      res.status(404);
+      res.send("Product is not Found");
+     }
+      
+      res.end();
 }
 export const createProduct = (req,res) => {
     let body = req.body;
@@ -40,10 +47,12 @@ export const createProduct = (req,res) => {
             images,
             categoryId
         }
+        res.status(201);
         products.push(product);
         res.send(JSON.stringify(products));
       }
       else{
+        res.status(401);
         res.send("Invalid Data");
       }
       res.end();
@@ -62,9 +71,11 @@ export const updateProduct =  (req,res) => {
     let product = products[idx];
     if(valid){
         product = {...product,...body};
+        res.status(200);
         res.send(JSON.stringify(product));
     }
     else{
+       res.status(401);
         res.send("Invalid Data");
     }
     res.end();
