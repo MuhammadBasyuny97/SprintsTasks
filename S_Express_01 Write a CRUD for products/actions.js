@@ -21,7 +21,7 @@ let products = [];
 }
 
 export const getProduct = (req,res) => {
-     let id = req.params;
+     let id = req.params.id;
      let product = products.find(product => product.id === id);
      if(product){
       res.status(200);
@@ -61,7 +61,7 @@ export const createProduct = (req,res) => {
 
 
 export const updateProduct =  (req,res) => {
-    let id = req.params[0];
+    let id = req.params.id;
     let body = req.body;
     let valid = userSchema.validateSync(body,{
         strict:true
@@ -83,7 +83,7 @@ export const updateProduct =  (req,res) => {
 }
 
 export const deleteProduct = (req,res) => {
-    let id = req.params;
+    let id = req.params.id;
     let idx = products.findIndex(product => product.id === id);
     let product = products[idx];
     products.splice(idx,1);
