@@ -16,14 +16,14 @@ import express from 'express';
 const app = express();
 
 
-app.get('/products', getProducts(req,res));
+app.get('/products', getProducts);
 
-app.get('/product/:id', getProduct(req,res))
+app.get('/product/:id', getProduct)
 
 
-app.post('/createProduct',createProduct(req,res))
-app.put('/updateProduct/:id' ,updateProduct(req,res))
-app.delete('/deleteProduct/:id' , deleteProduct(req,res));
+app.post('/createProduct',createProduct)
+app.put('/updateProduct/:id' ,updateProduct)
+app.delete('/deleteProduct/:id' , deleteProduct);
 
 
 app.listen(3000, () => {
