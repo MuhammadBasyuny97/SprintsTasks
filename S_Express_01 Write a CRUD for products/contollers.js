@@ -12,9 +12,10 @@ import { object, string, number} from 'yup';
   });
 
 
-let products = [];
+let products = [{name:"trousers", price:100, category_id: 1}];
+
  export const getProducts =(req,res) => {
-    const url = req.url;
+
     res.status(200);
     res.send(JSON.stringify(products));
     res.end();
