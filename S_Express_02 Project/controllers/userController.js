@@ -5,9 +5,8 @@ import { uid } from 'uid';
 import  jwt  from 'jsonwebtoken';
 import {createHash} from "crypto";
 import {validateLogin, validateRegister} from '../middleware/userValidation.js';
+import { usersData } from '../model/user.js';
 
-
-let usersData = [{id:uid(), userName:"muhammad", email:"muhammadbasyunydev@gmail.com", password: "ekBSZT8LLxhy86/e5qd6p5U3a7J9Pte5818FHO/peN0="}];
 
 export const userRegister = async (req,res) => {
 

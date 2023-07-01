@@ -3,7 +3,8 @@ import { object, string, number} from 'yup';
 import { uid } from 'uid';
 import { validateProduct } from '../middleware/productValidation.js';
 
-import {categories} from './categoryController.js';
+import { products } from '../model/product.js';
+import { categories } from '../model/category.js';
 
   let userSchema = object({
     name: string().required(),
@@ -12,10 +13,7 @@ import {categories} from './categoryController.js';
   });
 
 
- let products = [
-    {id:uid() , name: "AirMax ",price: 300, category_id: "shoes"},
-    {id:uid() ,name: "Print Shirt",price: 100, category_id: "shirts"}
-]; 
+ 
 
 //const categories = [1,2,3,4,5];
 
@@ -29,6 +27,7 @@ import {categories} from './categoryController.js';
 
 }
  */
+
 export const getProducts = (req,res) => {
     console.log("GetProducts");
     res.status(200).send(products);

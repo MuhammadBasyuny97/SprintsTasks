@@ -1,4 +1,4 @@
-import { categories } from "../controllers/categoryController.js";
+import { categories } from "../model/category.js";
 export const validateProduct = (name, price, category_id) => {
     const errors = [];
     if( typeof name !== "string" || name.length < 3 ){

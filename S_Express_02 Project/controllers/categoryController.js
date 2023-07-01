@@ -1,8 +1,7 @@
 
 import { validateCategory } from './../middleware/categoryValidation.js';
 
-
-export const categories = ["trousers","shoes","accessories","shirts","kids"];
+import { categories } from '../model/category.js';
 
 
 export const getCategories = (req,res) => {
