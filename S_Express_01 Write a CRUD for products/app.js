@@ -1,4 +1,4 @@
-import { getProducts,getProduct,createProduct,updateProduct ,deleteProduct} from './contollers.js';
+import { getProducts,getProduct,createProduct,updateProduct ,deleteProduct} from './controllers/productContollers.js';
 
 /* const getProducts = require('./actions.js');
 const getProduct =  require('./actions.js');
