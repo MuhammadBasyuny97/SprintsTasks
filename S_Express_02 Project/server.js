@@ -2,7 +2,6 @@
 import  {router as productRouter}  from "./routes/productRouter.js";
 import  {router as userRouter}  from "./routes/userRouter.js";
 import  {router as categoryRouter}  from "./routes/categoryRouter.js";
-//import  {bodyParser}  from "body-parser";
 import dotenv from 'dotenv';
 import express from "express";
 
