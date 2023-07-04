@@ -15,19 +15,6 @@ import { categories } from '../model/category.js';
 
  
 
-//const categories = [1,2,3,4,5];
-
-/* export const validateProduct = (product) => {
-    const {name,price,category_id}  = product;
-    let message = "";
-    if(typeof name !== string && name.length < 3) {
-        message = "Name must be string with at least 3 characters"
-        return message
-    }
-
-}
- */
-
 export const getProducts = (req,res) => {
     console.log("GetProducts");
     res.status(200).send(products);
@@ -114,14 +101,6 @@ export const updateProduct = (req,res) => {
           res.status(200).json(products);
       }
     
-
-/*    catch(error){
-    res.status(401).json({
-                            "Message":"Invalid Data",
-                            "Error": error 
-                           });
-                         
-   }  */
   res.end();
 }
 
