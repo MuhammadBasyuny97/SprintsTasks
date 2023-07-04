@@ -1,5 +1,4 @@
 
-//import <>crtpr
 import validator from 'validator';
 import { uid } from 'uid';
 import  jwt  from 'jsonwebtoken';
@@ -43,16 +42,7 @@ export const userRegister = async (req,res) => {
               res.status(201).cookie('authToken',token).json({
                 success : 'true',
             })
-         
-      
-      /*  catch(error){
-        res.status(500).json({
-            error:{
-                errorMessage: [`Unauthenticated`]
-            }
-        })
-
-      }  */
+        
 }
 
 
@@ -100,15 +90,6 @@ export const userLogin = async (req,res) => {
                 })
       }
           
-        
-       /*  catch{
-        
-                res.status(500).json({
-                  error:{
-                      errorMessage: ["Internal Server Error"]
-                  }
-                })
-        } */
       
        }
 
