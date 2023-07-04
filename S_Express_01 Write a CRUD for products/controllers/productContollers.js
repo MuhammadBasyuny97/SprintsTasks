@@ -1,6 +1,6 @@
 
 import { object, string, number} from 'yup';
-
+import {uid} from 'uid';
 
   let userSchema = object({
     title: string().required(),
@@ -42,6 +42,7 @@ export const createProduct = (req,res) => {
       const {title,price,description,images,categoryId} = req.body;
       if(valid){
         let product = {
+            id: uid(),
             title,
             price,
             description,
