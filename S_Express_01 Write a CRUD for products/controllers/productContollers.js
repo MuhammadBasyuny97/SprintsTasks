@@ -94,10 +94,3 @@ export const deleteProduct = (req,res) => {
     res.end();
 }
 
-/* module.exports ={
-  getProducts,
-  getProduct,
-  createProduct,
-  updateProduct,
-  deleteProduct
-} */
